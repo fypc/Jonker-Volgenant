@@ -17,10 +17,6 @@ add_library (JonkerVolgenant SHARED
             )
 
             # Enable relative RPATH
-if (APPLE)
-    set_target_properties(JonkerVolgenantFramework PROPERTIES FRAMEWORK TRUE FRAMEWORK_VERSION C)
-elseif (UNIX)
-endif()
 
 install(TARGETS JonkerVolgenant DESTINATION lib)
 install(TARGETS JonkerVolgenantFramework DESTINATION lib)
