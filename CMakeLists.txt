@@ -19,5 +19,5 @@ add_library (JonkerVolgenant SHARED
             # Enable relative RPATH
 
 install(TARGETS JonkerVolgenant DESTINATION lib)
-install(TARGETS JonkerVolgenantFramework DESTINATION lib)
+
 
