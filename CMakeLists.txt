@@ -19,7 +19,7 @@ add_library (JonkerVolgenantLib SHARED
                 src/interface.c
             )
 
-target_compile_options(first-JonkerVolgenantLib PRIVATE -O2)
+target_compile_options(JonkerVolgenantLib PRIVATE -O2)
 set_target_properties(JonkerVolgenantLib PROPERTIES PUBLIC_HEADER src/assignAlgs2D.h)
 set_property(TARGET JonkerVolgenantLib PROPERTY C_STANDARD 99)
 set_property(TARGET JonkerVolgenantLib PROPERTY C_STANDARD_REQUIRED TRUE)
