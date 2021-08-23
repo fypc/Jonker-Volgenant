@@ -18,19 +18,19 @@ bool bipartite_assignment(const bool maximize, double *  C, double *gain, int * 
     void* bufferStart=(void*)(row4col+numCol);
     u = (double *) malloc(numCol * sizeof(double));
     v = (double *) malloc(numRow * sizeof(double));
-    for(int i=0; i<numCol; ++i){
+    for(size_t i=0; i<numCol; ++i){
         u[i] = 0.0;
     }
-    for(int i=0; i<numRow; ++i){
+    for(size_t i=0; i<numRow; ++i){
         v[i] = 0.0;
     }
 
     bool feasible = assign2DC(maximize, C, gain, col4row, row4col, bufferStart, u, v, numRow, numCol);
 
-    for (int i=0; i<numRow; ++i) {
+    for (size_t i=0; i<numRow; ++i) {
         colForRow[i] = col4row[i];
     }
-    for (int i=0; i<numCol; ++i) {
+    for (size_t i=0; i<numCol; ++i) {
         rowForCol[i] = row4col[i];
     }
     free(tempBuffer);
