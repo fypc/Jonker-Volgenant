@@ -1,7 +1,7 @@
 # CMakeLists files in this project can
 # refer to the root source directory of the project as ${HELLO_SOURCE_DIR} and
 # to the root binary directory of the project as ${HELLO_BINARY_DIR}.
-cmake_minimum_required (VERSION 3.0.0)
+cmake_minimum_required (VERSION 3.1.0)
 project (JonkerVolgenantLib DESCRIPTION "Jonker-Volgenant algorithm to solve the assignement problem in a bipartite graph")
 
 # Create a library called "Hello" which includes the source file "hello.cxx".
@@ -13,6 +13,7 @@ add_library (JonkerVolgenantLib SHARED
 
 
 set_target_properties(JonkerVolgenantLib PROPERTIES PUBLIC_HEADER src/assignAlgs2D.h)
+set_property(TARGET JonkerVolgenantLib PROPERTY C_STANDARD 99)
 target_include_directories(JonkerVolgenantLib PRIVATE .)
 include(GNUInstallDirs)
 install(TARGETS JonkerVolgenantLib
