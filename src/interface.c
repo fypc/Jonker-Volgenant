@@ -4,20 +4,6 @@
 #include <stddef.h>
 #include <stdio.h>
 
-double get_element(double *  C, const int i, const int j, const size_t numRow, const size_t numCol) {
-    return(C[1]);
-}
-
-bool create_matrix(double *  C, double *  gain, const size_t numRow, const size_t numCol){
-    srand(time(NULL));
-    for(int i=0; i<numRow; ++i){
-        for(int j=0; j<numCol; ++j){
-            C[i+numRow*j]  =  (double)(2.0 * C[i+numRow*j]);      // Returns a pseudo-random integer between 0 and RAND_MAX.
-        }
-    }
-    *gain = ((double)rand() / RAND_MAX);
-    return(true);
-}
 
 bool bipartite_assignment(const bool maximize, double *  C, double *gain, int * colForRow, int *  rowForCol, const size_t numRow, const size_t numCol) {
     ptrdiff_t * col4row;

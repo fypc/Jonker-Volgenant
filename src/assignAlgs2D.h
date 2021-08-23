@@ -61,8 +61,6 @@ size_t assign2DFullCAltBufferSize(const size_t numRow, const size_t numCol);
 bool assign2DFullCAlt(const bool maximize, const double *C, double *  gain, ptrdiff_t *tuples, size_t *  numTuples,void *tempBuffer, double *u, double *v, size_t numRow, size_t numCol);
 
 bool bipartite_assignment(const bool maximize, double *  C, double *gain, int * colForRow, int *  rowForCol, const size_t numRow, const size_t numCol);
-bool create_matrix(double *  C, double *  gain, const size_t numRow, const size_t numCol);
-double get_element(double *  C, const int i, const int j, const size_t numRow, const size_t numCol);
 
 #ifdef __cplusplus
 } // extern "C"
