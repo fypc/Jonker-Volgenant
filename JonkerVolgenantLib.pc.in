@@ -9,4 +9,4 @@ Version: @PROJECT_VERSION@
 
 Requires:
 Libs: -L${libdir} -lmylib
-Cflags: -O3 -I${includedir}
+Cflags: -O3 -std=c99 -I${includedir}
