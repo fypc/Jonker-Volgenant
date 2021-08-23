@@ -14,6 +14,7 @@ add_library (JonkerVolgenantLib SHARED
 
 set_target_properties(JonkerVolgenantLib PROPERTIES PUBLIC_HEADER src/assignAlgs2D.h)
 set_property(TARGET JonkerVolgenantLib PROPERTY C_STANDARD 99)
+set_property(TARGET JonkerVolgenantLib PROPERTY C_STANDARD_REQUIRED TRUE)
 target_include_directories(JonkerVolgenantLib PRIVATE .)
 include(GNUInstallDirs)
 install(TARGETS JonkerVolgenantLib
