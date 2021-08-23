@@ -16,8 +16,10 @@ add_library (JonkerVolgenant SHARED
                 src/interface.c
             )
 
-            # Enable relative RPATH
-
+set_target_properties(JonkerVolgenant PROPERTIES PUBLIC_HEADER src/assignAlgs2D.h)
+set_property(TARGET JonkerVolgenant PROPERTY C_STANDARD 99)
+set_property(TARGET JonkerVolgenant PROPERTY C_STANDARD_REQUIRED TRUE)
+target_include_directories(JonkerVolgenant PRIVATE .)
 install(TARGETS JonkerVolgenant DESTINATION lib)
 
 
