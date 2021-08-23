@@ -1,6 +1,3 @@
-# CMakeLists files in this project can
-# refer to the root source directory of the project as ${HELLO_SOURCE_DIR} and
-# to the root binary directory of the project as ${HELLO_BINARY_DIR}.
 cmake_minimum_required (VERSION 3.1)
 project (JonkerVolgenant    VERSION 1.0
                             DESCRIPTION "Library for the Jonker-Volgenant algorithm to solve the assignement problem in a bipartite graph"
@@ -19,14 +16,12 @@ add_library (JonkerVolgenant SHARED
                 src/interface.c
             )
 
-target_compile_options(JonkerVolgenant PRIVATE -O2)
-set_target_properties(JonkerVolgenant PROPERTIES PUBLIC_HEADER src/assignAlgs2D.h)
-set_property(TARGET JonkerVolgenant PROPERTY C_STANDARD 99)
-set_property(TARGET JonkerVolgenant PROPERTY C_STANDARD_REQUIRED TRUE)
-target_include_directories(JonkerVolgenant PRIVATE .)
-include(GNUInstallDirs)
-install(TARGETS JonkerVolgenant
-    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
-    ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
-    PUBLIC_HEADER DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
+            # Enable relative RPATH
+if (APPLE)
+    set_target_properties(JonkerVolgenantFramework PROPERTIES FRAMEWORK TRUE FRAMEWORK_VERSION C)
+elseif (UNIX)
+endif()
+
+install(TARGETS JonkerVolgenant DESTINATION lib)
+install(TARGETS JonkerVolgenantFramework DESTINATION lib)
 
