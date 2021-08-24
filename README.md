@@ -1,12 +1,8 @@
-# Jonker Volgenant algorithm
-## Generalized Jonker-Volgenant shortest path assignment algorithm
+# C implementation of the Jonker Volgenant algorithm
+## Assignment problem in a bipartite graph
 
 
-C language functions implementing a
-generalized Jonker-Volgenant shortest path assignment algorithm
-to solve the two-dimensional assignment problem with a
-rectangular cost matrix C. The function assign2DC (commented
-below) can perform cost maximization or minimization with cost
+A C implementation of the Jonker-Volgenant algorithm to solve the minimum (or maximum) assignment problem in a bipartite graph. The function assign2DC can perform cost maximization or minimization with cost
 matrices having positive and/or negative elements whereas the
 function assign2DCBasic assumes that all elements of C are
 positive and that only minimization is performed.
