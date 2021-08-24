@@ -1,4 +1,4 @@
-# C implementation of the Jonker Volgenant algorithm
+# C implementation of the Jonker-Volgenant algorithm
 ## Assignment problem in a bipartite graph
 
 
