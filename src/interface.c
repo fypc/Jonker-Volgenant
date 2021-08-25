@@ -4,6 +4,34 @@
 #include <stddef.h>
 #include <stdio.h>
 
+bool bipartite_assignment_with_duals(const bool maximize, double *  C, double *gain, int * colForRow, int *  rowForCol, double *  u, double *  v, const size_t numRow, const size_t numCol) {
+    ptrdiff_t * col4row;
+    ptrdiff_t * row4col;
+    void *tempBuffer;
+
+    tempBuffer=malloc(assign2DSimpBufferSize(numRow,numCol)+(numRow+numCol)*sizeof(ptrdiff_t));
+    col4row=(ptrdiff_t*)tempBuffer;
+    row4col=col4row+numRow;
+    void* bufferStart=(void*)(row4col+numCol);
+
+    for(size_t i=0; i<numCol; ++i){
+        u[i] = 0.0;
+    }
+    for(size_t i=0; i<numRow; ++i){
+        v[i] = 0.0;
+    }
+
+    bool feasible = assign2DC(maximize, C, gain, col4row, row4col, bufferStart, u, v, numRow, numCol);
+
+    for (size_t i=0; i<numRow; ++i) {
+        colForRow[i] = col4row[i];
+    }
+    for (size_t i=0; i<numCol; ++i) {
+        rowForCol[i] = row4col[i];
+    }
+    free(tempBuffer);
+    return(feasible);
+}
 
 bool bipartite_assignment(const bool maximize, double *  C, double *gain, int * colForRow, int *  rowForCol, const size_t numRow, const size_t numCol) {
     ptrdiff_t * col4row;
